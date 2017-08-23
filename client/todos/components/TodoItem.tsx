@@ -48,25 +48,21 @@ class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
       );
     } else {
       element = (
-        <div className="view">
-          <input className="toggle"
+        <div>
+          <input
                  type="checkbox"
                  checked={todo.completed}
                  onChange={() => completeTodo(todo)} />
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>
             {todo.text}
           </label>
-          <button className="destroy"
-                  onClick={() => deleteTodo(todo)} />
+          <button content='X' onClick={() => deleteTodo(todo)} />
         </div>
       );
     }
 
     return (
-      <li className={classNames({
-        completed: todo.completed,
-        editing: this.state.editing
-      })}>
+      <li>
         {element}
       </li>
     );

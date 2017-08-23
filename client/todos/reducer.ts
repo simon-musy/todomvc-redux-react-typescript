@@ -6,9 +6,7 @@ import {
   ADD_TODO,
   DELETE_TODO,
   EDIT_TODO,
-  COMPLETE_TODO,
-  COMPLETE_ALL,
-  CLEAR_COMPLETED
+  COMPLETE_TODO
 } from './constants/ActionTypes';
 
 const initialState: IState = [<Todo>{
@@ -46,16 +44,5 @@ export default handleActions<IState, Todo>({
         assign({}, todo, { completed: !todo.completed }) :
         todo
     );
-  },
-
-  [COMPLETE_ALL]: (state: IState, action: Action<Todo>): IState => {
-    const areAllMarked = state.every(todo => todo.completed);
-    return <IState>state.map(todo => assign({}, todo, {
-      completed: !areAllMarked
-    }));
-  },
-
-  [CLEAR_COMPLETED]: (state: IState, action: Action<Todo>): IState => {
-    return state.filter(todo => todo.completed === false);
   }
 }, initialState);

@@ -7,9 +7,7 @@ import {
   ADD_TODO,
   DELETE_TODO,
   EDIT_TODO,
-  COMPLETE_TODO,
-  COMPLETE_ALL,
-  CLEAR_COMPLETED
+  COMPLETE_TODO
 } from './constants/ActionTypes';
 
 const addTodo = createAction<Todo, string>(
@@ -32,21 +30,9 @@ const completeTodo = createAction<Todo, Todo>(
   (todo: Todo) => todo
 )
 
-const completeAll = createAction<void>(
-  COMPLETE_ALL,
-  () => { }
-)
-
-const clearCompleted = createAction<void>(
-  CLEAR_COMPLETED,
-  () => { }
-);
-
 export {
   addTodo,
   deleteTodo,
   editTodo,
-  completeTodo,
-  completeAll,
-  clearCompleted
+  completeTodo
 }

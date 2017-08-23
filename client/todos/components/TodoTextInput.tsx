@@ -42,11 +42,7 @@ class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextInputSta
 
   render() {
     return (
-      <input className={
-        classNames({
-          edit: this.props.editing,
-          'new-todo': this.props.newTodo
-        })}
+      <input 
         type="text"
         placeholder={this.props.placeholder}
         autoFocus={true}
